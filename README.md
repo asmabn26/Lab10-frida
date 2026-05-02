@@ -210,7 +210,7 @@ Vérification :
 
 Le résultat `-rwxr-xr-x ... /data/local/tmp/frida-server` confirme que le fichier est bien présent et exécutable.
 
-![Déploiement de frida-server](captures/capture_06_frida_server_push.png)
+![Déploiement de frida-server](captures/capture_04_frida_server_push.png)
 
 ---
 
@@ -249,7 +249,7 @@ projetws    com.example.projetws
 
 La communication entre les outils Frida côté PC et `frida-server` est opérationnelle.
 
-![Liste des applications détectées par Frida](captures/capture_07_frida_ps_uai.png)
+![Liste des applications détectées par Frida](captures/capture_06_frida_ps_uai.png)
 
 ---
 
@@ -277,7 +277,7 @@ Sortie obtenue :
 
 Ce message indique que l'application a bien été lancée, le script injecté, et le runtime Java est accessible.
 
-![Injection du script hello.js](captures/capture_08_injection_hello_js.png)
+![Injection du script hello.js](captures/capture_07_injection_hello_js.png)
 
 ---
 
@@ -306,7 +306,7 @@ frida -U -n "projetws" -l C:\Lab10_Frida\scripts\hello_native.js
 
 Les premières lignes s'affichent immédiatement. Le message `recv appelée` n'apparaît que si l'application effectue une opération réseau passant par cette fonction native.
 
-![Hook natif minimal](captures/capture_09_hello_native.png)
+![Hook natif minimal](captures/capture_08_hello_native.png)
 
 ---
 
@@ -329,7 +329,7 @@ Process.platform
 
 Ces commandes permettent d'inspecter l'architecture du processus, les bibliothèques chargées, les threads actifs, les zones mémoire exécutables, ou encore la disponibilité du runtime Java.
 
-![Console interactive Frida](captures/capture_10_console_interactive.png)
+![Console interactive Frida](captures/capture_9_console_interactive.png)
 
 ---
 
@@ -361,7 +361,7 @@ frida -U -n "projetws" -l C:\Lab10_Frida\scripts\hook_connect.js
 
 La sortie confirme que Frida a bien localisé `connect` dans `libc.so`.
 
-![Hook de la fonction connect](captures/capture_11_hook_connect.png)
+![Hook de la fonction connect](captures/capture_10_hook_connect.png)
 
 ---
 
@@ -404,7 +404,7 @@ frida -U -n "projetws" -l C:\Lab10_Frida\scripts\hook_network.js
 
 Ce script permet de corréler les activités réseau de l'application avec les actions effectuées dans l'interface.
 
-![Hook des fonctions réseau](captures/capture_12_hook_network.png)
+![Hook des fonctions réseau](captures/capture_10_hook_network.png)
 
 ---
 
@@ -441,7 +441,7 @@ Interceptor.attach(readPtr, {
 frida -U -n "projetws" -l C:\Lab10_Frida\scripts\hook_file.js
 ```
 
-![Hook des fichiers natifs](captures/capture_13_hook_file.png)
+![Hook des fichiers natifs](captures/capture_11_hook_file.png)
 
 ---
 
@@ -475,7 +475,7 @@ frida -U -n "projetws" -l C:\Lab10_Frida\scripts\hook_prefs.js
 
 Les clés lues et leurs valeurs s'affichent en temps réel, ce qui permet d'identifier les états internes gérés côté Java.
 
-![Hook SharedPreferences](captures/capture_14_hook_prefs.png)
+![Hook SharedPreferences](captures/capture_12_hook_prefs.png)
 
 ---
 
@@ -520,7 +520,7 @@ frida -U -n "projetws" -l C:\Lab10_Frida\scripts\hook_sqlite.js
 
 Aucune requête n'a été capturée pendant les tests : l'application `projetws` communique principalement via un Web Service (Volley), sans passer par une base SQLite locale.
 
-![Hook SQLite](captures/capture_15_hook_sqlite.png)
+![Hook SQLite](captures/capture_13_hook_sqlite.png)
 
 ---
 
@@ -554,7 +554,7 @@ frida -U -n "projetws" -l C:\Lab10_Frida\scripts\hook_debug.js
 
 Chaque appel à `isDebuggerConnected()` ou `waitingForDebugger()` s'affiche dans la console avec sa valeur de retour.
 
-![Hook Debug](captures/capture_16_hook_debug.png)
+![Hook Debug](captures/capture_15_hook_debug.png)
 
 ---
 
@@ -581,7 +581,7 @@ frida -U -p <PID> -l C:\Lab10_Frida\scripts\hook_file_java.js
 
 Le script s'est chargé correctement. Aucun chemin n'a été affiché pendant la session, ce qui suggère qu'aucun objet `java.io.File` n'a été instancié lors de ce test.
 
-![Hook Java File](captures/capture_17_hook_file_java.png)
+![Hook Java File](captures/capture_16_hook_file_java.png)
 
 ---
 
