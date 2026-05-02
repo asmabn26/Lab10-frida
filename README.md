@@ -690,20 +690,4 @@ Ce travail constitue un point d'entrée solide pour des investigations plus avan
 
 ---
 
-## 26. Bonnes pratiques
 
-- Analyser uniquement des applications dont vous êtes autorisé à inspecter le comportement
-- Synchroniser impérativement la version du client Frida et celle de `frida-server`
-- Toujours vérifier l'architecture de l'émulateur avant de télécharger `frida-server`
-- Garder une trace des commandes exécutées et conserver les captures importantes
-- Exclure le binaire `frida-server` du dépôt Git sauf nécessité explicite
-- Ne pas inclure de données sensibles dans les fichiers de log commités
-
----
-
-## 27. Ressources
-
-- Site officiel : https://frida.re/
-- Documentation : https://frida.re/docs/home/
-- Releases GitHub : https://github.com/frida/frida/releases
-- Android Platform Tools : https://developer.android.com/tools/releases/platform-tools
